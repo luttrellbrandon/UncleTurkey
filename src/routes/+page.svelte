@@ -1,12 +1,14 @@
-<script>
-	import "../app.css";
-</script>
-<article>
-	<h1>Uncle Turkey</h1>
-	<p>The friend the kids call Uncle Turkey — fall-festive nonsense, served warm.</p>
-	<p>
-		<a href="/games">Play Mini Games</a>
-		·
-		<a href="/origin">Read the Origin Story</a>
-	</p>
-</article>
+<section class="hero min-h-[60vh] bg-base-200">
+	<div class="hero-content text-center">
+		<div class="max-w-xl">
+			<h1 class="text-5xl font-bold tracking-tight">Uncle Turkey</h1>
+			<p class="py-6 text-lg text-base-content/80">
+				Fall-festive nonsense, served warm — the friend the kids call Uncle Turkey.
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-3">
+				<a href="/games" class="btn btn-primary">Play Mini Games</a>
+				<a href="/origin" class="btn btn-outline">Read the Origin Story</a>
+			</div>
+		</div>
+	</div>
+</section>

@@ -18,6 +18,10 @@ Thumbs.db
 !.env.example
 !.env.test
 
+# Source Likeness and other private local files (see .private/README.md)
+.private/**
+!.private/README.md
+
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

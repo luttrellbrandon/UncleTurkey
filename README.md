@@ -2,7 +2,7 @@
 
 Fall-festive gag site for Uncle Turkey — Origin Story, Mini Games (Phaser), Turkey Links, and High Scores on Cloudflare.
 
-Domain language: [`CONTEXT.md`](./CONTEXT.md) · Decisions: [`docs/adr/`](./docs/adr/) · Deploy: [`docs/deploy.md`](./docs/deploy.md)
+Domain language: [`CONTEXT.md`](./CONTEXT.md) · Decisions: [`docs/adr/`](./docs/adr/) · Deploy: [`docs/deploy.md`](./docs/deploy.md) · Assets: [`docs/assets.md`](./docs/assets.md)
 
 ## Stack
 
@@ -23,13 +23,16 @@ Set it up manually in the Cloudflare dashboard — step-by-step: [`docs/deploy.m
 src/
   routes/                 # pages + /api/games/[gameId]/scores
   lib/
+    assets/characters/    # Uncle Turkey + Guest Turkey Pose Packs
     content/              # Origin Story, Turkey Links, Games Hub catalog
-    games/turkey-hunt/    # Phaser Mini Game feature (stub)
+    games/turkey-hunt/    # Phaser Mini Game (+ assets/)
     server/db/            # Drizzle schema + High Score helpers
     ui/                   # gag chrome (turkey cursor)
-migrations/               # D1 SQL
+.private/                 # local Source Likeness only (gitignored)
+migrations/
+docs/assets.md            # GPT prompts + asset rules
+docs/deploy.md
 docs/adr/
-docs/deploy.md            # manual Cloudflare + GitHub setup
 wrangler.toml
 ```
 
