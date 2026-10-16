@@ -1,0 +1,19 @@
+# Worker name MUST match the Cloudflare dashboard Worker connected to Git.
+name = "uncle-turkey"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_als"]
+main = ".svelte-kit/cloudflare/_worker.js"
+workers_dev = true
+# PR preview builds are off for now (production branch = main only in Builds settings).
+preview_urls = false
+
+[assets]
+binding = "ASSETS"
+directory = ".svelte-kit/cloudflare"
+
+# High Scores — create D1 in the dashboard, then paste database_id here (docs/deploy.md).
+[[d1_databases]]
+binding = "DB"
+database_name = "uncle-turkey"
+database_id = "2a714bee-8c27-4392-8c9c-bc929dce75ef"
+migrations_dir = "migrations"

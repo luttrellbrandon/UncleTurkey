@@ -1,0 +1,7 @@
+/* Festive turkey cursor — swap in a real asset later */
+html,
+body,
+a,
+button {
+	cursor: url('/turkey-cursor.png'), auto;
+}
