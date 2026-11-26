@@ -13,7 +13,7 @@ export const games: GameListing[] = [
 	{
 		id: 'turkey-hunt',
 		title: 'Turkey Hunt',
-		blurb: 'A Duck Hunt–style gag shooter. Phaser stub lives under #lib/games/turkey-hunt.',
+		blurb: 'Click the flying turkeys. Daniel, Steph, Steve, a stuffed decoy, and Brandon.',
 		href: '/games/turkey-hunt'
 	}
 ];

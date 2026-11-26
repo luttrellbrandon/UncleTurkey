@@ -1,0 +1,682 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-26T02:12:41.937Z",
+  "title": "Design System: Uncle Turkey Market",
+  "extensions": {
+    "colorMeta": {
+      "circular-red": {
+        "role": "primary",
+        "displayName": "Circular Red",
+        "canonical": "#d8141b",
+        "tonalRamp": [
+          "#3d0507",
+          "#640a0d",
+          "#8f0e12",
+          "#b81117",
+          "#d8141b",
+          "#ec5a55",
+          "#f5a29b",
+          "#fbd9d4"
+        ]
+      },
+      "process-yellow": {
+        "role": "secondary",
+        "displayName": "Process Yellow",
+        "canonical": "#ffd400",
+        "tonalRamp": [
+          "#3a2f00",
+          "#5e4d00",
+          "#866e00",
+          "#b39300",
+          "#e0b900",
+          "#ffd400",
+          "#ffe466",
+          "#fff4bf"
+        ]
+      },
+      "produce-green": {
+        "role": "tertiary",
+        "displayName": "Produce Green",
+        "canonical": "#1d7438",
+        "tonalRamp": [
+          "#08200f",
+          "#0e3a1b",
+          "#145427",
+          "#1d7438",
+          "#3b9354",
+          "#6cb37f",
+          "#a6d4b0",
+          "#ddefe0"
+        ]
+      },
+      "newsprint": {
+        "role": "neutral",
+        "displayName": "Newsprint",
+        "canonical": "#fff4dc",
+        "tonalRamp": [
+          "#3a3326",
+          "#5e5440",
+          "#857a60",
+          "#ab9f83",
+          "#d0c4a6",
+          "#ead29a",
+          "#f7e6bd",
+          "#fff4dc"
+        ]
+      },
+      "newsprint-fold": {
+        "role": "neutral",
+        "displayName": "Newsprint Fold",
+        "canonical": "#f7e6bd"
+      },
+      "newsprint-crease": {
+        "role": "neutral",
+        "displayName": "Newsprint Crease",
+        "canonical": "#ead29a"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#161210",
+        "tonalRamp": [
+          "#0b0908",
+          "#161210",
+          "#2e2824",
+          "#4a423c",
+          "#6b625a",
+          "#948a80",
+          "#c2b9ae",
+          "#e9e2d8"
+        ]
+      },
+      "recall-red": {
+        "role": "error",
+        "displayName": "Recall Red",
+        "canonical": "#b3121b",
+        "purpose": "Error state; on the game surface also the penalty caption stroke and negative point pop."
+      },
+      "flyer-blue": {
+        "role": "info",
+        "displayName": "Flyer Blue",
+        "canonical": "#1b5fa8",
+        "purpose": "Info state in UI; water, the racquetball, whole comic scene fields and Brandon's fan in printed scenery, never a UI accent."
+      },
+      "bubble-white": {
+        "role": "neutral",
+        "displayName": "Bubble White",
+        "canonical": "#ffffff",
+        "purpose": "Speech bubbles and tails, the practice-log card, scene grade cards, the end-panel name field. Never a page ground."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Doorbuster title only, one word per line, uppercase; the comics masthead title uses it with a clamp(3.6rem, 15vw, 6rem) floor."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section heads and coupon titles."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Prices and point values, tabular figures."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Item, department and nav names."
+      },
+      "shout": {
+        "displayName": "Shout",
+        "purpose": "Script exclamations such as Doorbuster!; at most one per box."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Fine print where the roast lives."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Aisle tags, coupon terms, date strip."
+      },
+      "overlay": {
+        "displayName": "Overlay",
+        "purpose": "Game-surface camera overlay plates (level, streak, quota); 1.25rem from 640px."
+      },
+      "story-body": {
+        "displayName": "Story Body",
+        "purpose": "Long-form prose beside comic panels at 60ch; the comics masthead intro and end band."
+      },
+      "lettering": {
+        "displayName": "Lettering",
+        "purpose": "Comic narration boxes and speech bubbles; bubbles 1rem under 640px, shout 1.2rem to 1.5rem in Circular Red."
+      }
+    },
+    "shadows": [
+      {
+        "name": "coupon-lift",
+        "value": "0 12px 22px -10px rgb(22 18 16 / 0.5)",
+        "purpose": "Coupon body on hover; also the game-surface hunt button on hover."
+      },
+      {
+        "name": "coupon-torn",
+        "value": "0 22px 34px -14px rgb(22 18 16 / 0.6)",
+        "purpose": "Coupon body after clipping."
+      },
+      {
+        "name": "menu-drop",
+        "value": "0 10px 24px -8px rgb(22 18 16 / 0.45)",
+        "purpose": "Mobile Aisles dropdown."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Burst slam, coupon lift and tear, stamp."
+      },
+      {
+        "name": "burst-slam",
+        "value": "700ms ease-out-expo 150ms; rotate(-24deg) scale(1.25) to rotate(-8deg) scale(1)",
+        "purpose": "The one authored load moment."
+      },
+      {
+        "name": "coupon-tear",
+        "value": "260ms ease-out-expo; clipped translate(18px,30px) rotate(-6deg) over an 18% ink hatch hole, stamp 420ms delay 120ms, navigate after 1100ms (500ms reduced)",
+        "purpose": "Primary-action feedback."
+      },
+      {
+        "name": "hover-standard",
+        "value": "200ms ease-out",
+        "purpose": "Department tile fill and lift."
+      },
+      {
+        "name": "hunt-button-lift",
+        "value": "160ms ease-out-expo; translateY(-2px) + coupon-lift shadow; none under reduced motion",
+        "purpose": "Game end-panel buttons on hover."
+      },
+      {
+        "name": "quota-fill",
+        "value": "width 300ms ease-out",
+        "purpose": "Quota meter bar."
+      },
+      {
+        "name": "caption-slam",
+        "value": "scale 1.6 to 1 over 220ms Expo.easeOut; at 950ms rise 18px and fade over 300ms; reduced motion shows it static and removes it after 1100ms",
+        "purpose": "Meme caption on a hit. Game surface only."
+      },
+      {
+        "name": "gameplay",
+        "value": "bird flight, flap, fall/tumble, 70ms hit flash x2, 700ms point pop, 200ms shot ring",
+        "purpose": "Exempt from the burst-slam/coupon-tear limit inside the game playfield only."
+      },
+      {
+        "name": "sfx-static",
+        "value": "none",
+        "purpose": "Story-surface SFX bursts and meme captions are printed, not animated; the end-band link lifts 2px on hover over 200ms ease-out (hover-standard)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "bubble-band",
+        "value": "480px",
+        "note": "Panel scene width (not viewport) under which speech bubbles move to a band above the scene."
+      }
+    ],
+    "fonts": [
+      {
+        "name": "Yellowtail",
+        "note": "Only the latin subset is declared in layout.css; yellowtail-400-latin-ext.woff2 ships in static/fonts with no @font-face."
+      }
+    ],
+    "provenance": {
+      "source": "src/routes/+page.svelte home Weekly Ad, after final correction batch",
+      "finishReview": "ship, on the scored fixes (as reported by the build coordinator)",
+      "merged": [
+        {
+          "date": "2026-11-25",
+          "source": "Turkey Hunt game surface (src/routes/games/turkey-hunt/+page.svelte, TurkeyHuntGame.svelte, HuntScene.ts, levels.ts)",
+          "finishReview": "ship, on the scored fixes (as reported by the build coordinator)"
+        },
+        {
+          "date": "2026-11-25",
+          "source": "Origin Story surface (src/routes/origin/+page.svelte, src/lib/content/origin.ts, src/lib/ui/comic/ComicPanel.svelte, ComicScene.svelte, ComicTurkey.svelte, reused src/lib/ui/Starburst.svelte)",
+          "finishReview": "final verdict pass on scored fixes at time of recording (code-led)"
+        }
+      ]
+    },
+    "illustrationPigments": {
+      "scope": "Drawn turkeys and props on the game canvas only; never UI chrome. Mirrored with the tokens in src/lib/games/turkey-hunt/levels.ts (INK).",
+      "values": [
+        {
+          "name": "plumage-orange",
+          "value": "#f08a1c"
+        },
+        {
+          "name": "body-brown",
+          "value": "#7a3b16"
+        },
+        {
+          "name": "body-rust",
+          "value": "#9a4a1c"
+        },
+        {
+          "name": "body-dark",
+          "value": "#5a2a10"
+        },
+        {
+          "name": "body-recalled",
+          "value": "#3a2e28"
+        },
+        {
+          "name": "stuffed-tan",
+          "value": "#c9a46a"
+        },
+        {
+          "name": "head-skin",
+          "value": "#e8574a"
+        }
+      ]
+    },
+    "translucency": [
+      {
+        "name": "overlay-plate",
+        "value": "rgb(22 18 16 / 0.8)",
+        "purpose": "Camera overlay plates on the playfield."
+      },
+      {
+        "name": "end-scrim",
+        "value": "rgb(22 18 16 / 0.55)",
+        "purpose": "Scrim behind the end panel."
+      }
+    ],
+    "gameDepth": [
+      {
+        "name": "room",
+        "value": 0
+      },
+      {
+        "name": "pennant-fill",
+        "value": 1
+      },
+      {
+        "name": "pennant-text",
+        "value": 2
+      },
+      {
+        "name": "bird",
+        "value": 10
+      },
+      {
+        "name": "foreground-prop",
+        "value": 50
+      },
+      {
+        "name": "caption",
+        "value": 900
+      },
+      {
+        "name": "point-pop",
+        "value": 901
+      },
+      {
+        "name": "shot-ring",
+        "value": 950
+      },
+      {
+        "name": "reticle",
+        "value": 1000
+      }
+    ],
+    "gameWorld": {
+      "phone": {
+        "below": "640px",
+        "size": "540x720",
+        "aspect": "3:4"
+      },
+      "wide": {
+        "from": "640px",
+        "size": "960x600",
+        "aspect": "16:10"
+      },
+      "captionBand": "0.11H to 0.48H",
+      "tagTextMinOnScreen": "15px"
+    },
+    "drift": [
+      "TurkeyHuntGame.svelte cam/REC bar is a literal 1.35rem on phones (1.5rem from 640px), off the ramp between overlay and title; single use, not added as a step.",
+      "Point pop and shot ring are not gated by prefers-reduced-motion; the caption slam is.",
+      "Origin Story literal sizes off the ramp, not added as steps: 0.98rem (stat-card lines, practice-log notes), 1.6rem (stat values, end-band link), 1.25/1.45rem and 1.2/1.8rem (SFX words), 2.4rem end-band script, 3rem end-band headline. 1.05rem was systematic and became story-body.",
+      "ComicScene.svelte wizard curtain folds use an off-token dark green #0f4f25."
+    ],
+    "comic": {
+      "panel": {
+        "frame": "3px ink",
+        "matting": "10px newsprint",
+        "sceneFrame": "2.5px ink",
+        "sceneViewBox": "400x260",
+        "narration": "process-yellow strip, 3px ink rule under, lettering type",
+        "panelNumbers": false
+      },
+      "bubbles": {
+        "border": "2.5px ink",
+        "shoutBorder": "3px circular-red",
+        "inScene": {
+          "from": "480px scene width",
+          "stack": "top-down in reading order, 2% gap",
+          "inset": "3%",
+          "maxWidth": "46% (shout 50%)",
+          "start": "BUBBLE_START per scene, default 3%"
+        },
+        "band": {
+          "below": "480px scene width",
+          "gap": "8px",
+          "maxWidth": "82%"
+        },
+        "breakout": {
+          "inScene": "-2.75rem",
+          "band": "-1.75rem",
+          "scope": "splash panel only"
+        }
+      },
+      "tails": {
+        "shape": "wedge, 14px base 2px inside the bubble bottom",
+        "fill": "bubble-white",
+        "stroke": "2.5px on two sides only; ink, or circular-red for shouts",
+        "aim": "speaker's beak via HEADS table",
+        "capInScene": "56px",
+        "capBand": "band bottom + 34px"
+      },
+      "sfx": {
+        "points": 16,
+        "depth": 0.22,
+        "rotate": "-10deg",
+        "text": "circular-red Big Shoulders 900 uppercase",
+        "corner": "6.5rem (7.5rem from 640px), bottom-right overhang",
+        "storyPoint": "sfxAt %; 5.5rem (8rem from 640px)",
+        "perPanel": 1
+      },
+      "splash": {
+        "perPage": 1,
+        "prose": "two columns from 768px"
+      },
+      "memeCaption": {
+        "size": "2rem (2.6rem from 640px)",
+        "stroke": "0.1em ink, paint-order stroke fill",
+        "rotate": "-3deg",
+        "perFeature": 1
+      },
+      "turkeys": {
+        "gear": [
+          "cap",
+          "veil",
+          "collar",
+          "pompadour",
+          "shades",
+          "goggles",
+          "bowtie",
+          "paddle",
+          "racquet",
+          "rod",
+          "hearts",
+          "sweat"
+        ],
+        "birds": {
+          "daniel": {
+            "body": "#7a3b16",
+            "fan": [
+              "#d8141b",
+              "#ffd400",
+              "#f08a1c"
+            ]
+          },
+          "brandon": {
+            "body": "#3a2e28",
+            "fan": [
+              "#1b5fa8",
+              "#ffd400",
+              "#1b5fa8"
+            ]
+          },
+          "steph": {
+            "body": "#9a4a1c",
+            "fan": [
+              "#ffd400",
+              "#1d7438",
+              "#ffd400"
+            ]
+          },
+          "steve": {
+            "body": "#5a2a10",
+            "fan": [
+              "#1d7438",
+              "#ffd400",
+              "#1d7438"
+            ]
+          }
+        },
+        "likeness": false
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "Clip Coupon",
+      "kind": "button",
+      "refersTo": "coupon-primary",
+      "description": "Primary action: dashed cut line around a yellow coupon that lifts on hover.",
+      "html": "<a href=\"#\" class=\"ds-coupon\"><span class=\"ds-coupon-body\"><span class=\"ds-coupon-main\"><span class=\"ds-coupon-title\">Play Turkey Hunt</span><span class=\"ds-coupon-terms\">Good for one Run · no rain checks</span></span><span class=\"ds-coupon-stub\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"6\" r=\"3\"/><circle cx=\"6\" cy=\"18\" r=\"3\"/><path d=\"M8.1 8.1 20 20M8.1 15.9 20 4\" stroke-linecap=\"round\"/></svg><span>Clip &amp; play</span></span></span></a>",
+      "css": ".ds-coupon { display: block; max-width: 420px; padding: 4px; border: 3px dashed #161210; background: #f7e6bd repeating-linear-gradient(45deg, transparent 0 8px, rgb(22 18 16 / 0.18) 8px 10px); color: #161210; text-decoration: none; } .ds-coupon-body { display: flex; gap: 12px; padding: 12px; border: 2px solid #161210; background: #ffd400; transition: transform 260ms cubic-bezier(0.16,1,0.3,1), box-shadow 260ms cubic-bezier(0.16,1,0.3,1); } .ds-coupon-main { flex: 1; display: flex; flex-direction: column; justify-content: space-between; } .ds-coupon-title { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2.6rem; line-height: 0.88; text-transform: uppercase; } .ds-coupon-terms { margin-top: 8px; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; } .ds-coupon-stub { width: 6.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: 2px dashed #161210; padding-left: 12px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 1.25rem; line-height: 1; text-transform: uppercase; text-align: center; } .ds-coupon:hover .ds-coupon-body { transform: translate(-2px,-3px) rotate(-0.8deg); box-shadow: 0 12px 22px -10px rgb(22 18 16 / 0.5); } .ds-coupon:focus-visible { outline: 3px solid #161210; outline-offset: 3px; } .ds-coupon.clipped .ds-coupon-body { transform: translate(18px,30px) rotate(-6deg); box-shadow: 0 22px 34px -14px rgb(22 18 16 / 0.6); }"
+    },
+    {
+      "name": "Price Box",
+      "kind": "card",
+      "refersTo": "price-box",
+      "description": "A Hunt Target priced at its point value, with an aisle tag on the top border.",
+      "html": "<div class=\"ds-price\"><span class=\"ds-price-tag\">Fresh catch</span><span class=\"ds-price-num\">100<span class=\"ds-price-unit\">pts</span></span><span class=\"ds-price-name\">Daniel Turkey</span><span class=\"ds-price-line\">The house brand. Tough, loud, a little gamey.</span></div>",
+      "css": ".ds-price { position: relative; display: flex; flex-direction: column; max-width: 220px; padding: 10px; border: 2px solid #161210; background: rgb(255 255 255 / 0.6); color: #161210; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; } .ds-price-tag { position: absolute; top: -10px; right: 8px; padding: 2px 6px; background: #1d7438; color: #fff4dc; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; } .ds-price-num { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 3.2rem; line-height: 0.85; color: #d8141b; font-variant-numeric: tabular-nums; } .ds-price-unit { margin-left: 4px; vertical-align: top; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.04em; } .ds-price-name { margin-top: 8px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.45rem; line-height: 1; text-transform: uppercase; } .ds-price-line { margin-top: 4px; font-size: 0.88rem; line-height: 1.375; }"
+    },
+    {
+      "name": "Recalled Price Box",
+      "kind": "card",
+      "refersTo": "price-box-recalled",
+      "description": "Negative-point target: ink box, yellow price, yellow hatch.",
+      "html": "<div class=\"ds-recalled\"><span class=\"ds-recalled-tag\">Recalled</span><span class=\"ds-recalled-num\">−50<span class=\"ds-recalled-unit\">pts</span></span><span class=\"ds-recalled-name\">Brandon Turkey</span></div>",
+      "css": ".ds-recalled { position: relative; display: flex; flex-direction: column; max-width: 220px; padding: 10px; border: 2px solid #161210; background: #161210 repeating-linear-gradient(-45deg, transparent 0 14px, rgb(255 212 0 / 0.08) 14px 28px); color: #fff4dc; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; } .ds-recalled-tag { position: absolute; top: -10px; right: 8px; padding: 2px 6px; background: #ffd400; color: #161210; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; } .ds-recalled-num { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 3.2rem; line-height: 0.85; color: #ffd400; font-variant-numeric: tabular-nums; } .ds-recalled-unit { margin-left: 4px; vertical-align: top; font-size: 0.95rem; font-weight: 700; } .ds-recalled-name { margin-top: 8px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.45rem; line-height: 1; text-transform: uppercase; }"
+    },
+    {
+      "name": "Starburst Price",
+      "kind": "custom",
+      "refersTo": "doorbuster-box",
+      "description": "Authored SVG polygon burst carrying the doorbuster price; never clip-path.",
+      "html": "<div class=\"ds-burst\"><svg viewBox=\"0 0 100 100\" aria-hidden=\"true\"><polygon points=\"50.00,0.00 55.98,8.43 64.09,2.03 67.45,11.80 77.03,7.94 77.50,18.26 87.79,17.26 85.33,27.29 95.48,29.23 90.30,38.17 99.49,42.88 92.00,50.00 99.49,57.12 90.30,61.83 95.48,70.77 85.33,72.71 87.79,82.74 77.50,81.74 77.03,92.06 67.45,88.20 64.09,97.97 55.98,91.57 50.00,100.00 44.02,91.57 35.91,97.97 32.55,88.20 22.97,92.06 22.50,81.74 12.21,82.74 14.67,72.71 4.52,70.77 9.70,61.83 0.51,57.12 8.00,50.00 0.51,42.88 9.70,38.17 4.52,29.23 14.67,27.29 12.21,17.26 22.50,18.26 22.97,7.94 32.55,11.80 35.91,2.03 44.02,8.43\" fill=\"#ffd400\" stroke=\"#161210\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg><span class=\"ds-burst-price\">69<span class=\"ds-burst-c\">¢</span></span><span class=\"ds-burst-unit\">per lb</span></div>",
+      "css": ".ds-burst { position: relative; display: grid; place-items: center; align-content: center; width: 156px; aspect-ratio: 1; color: #161210; transform: rotate(-8deg); animation: ds-slam 700ms cubic-bezier(0.16,1,0.3,1) 150ms both; } .ds-burst svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; } .ds-burst-price, .ds-burst-unit { position: relative; } .ds-burst-price { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 4.2rem; line-height: 0.8; } .ds-burst-c { vertical-align: top; font-size: 0.45em; } .ds-burst-unit { font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; } @keyframes ds-slam { from { transform: rotate(-24deg) scale(1.25); } to { transform: rotate(-8deg) scale(1); } } @media (prefers-reduced-motion: reduce) { .ds-burst { animation: none; } }"
+    },
+    {
+      "name": "Masthead Nav",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "Sticky red store masthead with yellow underline and pill links.",
+      "html": "<nav class=\"ds-mast\"><a href=\"#\" class=\"ds-mast-mark\">Uncle Turkey<span>Market</span></a><ul><li><a href=\"#\" aria-current=\"page\">Weekly Ad</a></li><li><a href=\"#\">Origin Story</a></li><li><a href=\"#\">Games</a></li></ul></nav>",
+      "css": ".ds-mast { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; background: #d8141b; color: #fff4dc; border-bottom: 4px solid #ffd400; } .ds-mast-mark { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: -0.01em; text-transform: uppercase; color: inherit; text-decoration: none; } .ds-mast-mark span { margin-left: 6px; vertical-align: middle; font-size: 0.45em; letter-spacing: 0.12em; color: #ffd400; } .ds-mast ul { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; } .ds-mast ul a { display: flex; padding: 6px 12px; border: 2px solid transparent; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.25rem; line-height: 1; text-transform: uppercase; color: inherit; text-decoration: none; transition: border-color 150ms; } .ds-mast ul a:hover { border-color: #ffd400; } .ds-mast ul a[aria-current=page] { background: #ffd400; color: #161210; border-color: #161210; } .ds-mast a:focus-visible { outline: 3px solid #161210; outline-offset: 3px; }"
+    },
+    {
+      "name": "Department Coupon",
+      "kind": "card",
+      "refersTo": "department-coupon",
+      "description": "Dashed aisle tile linking to another section of the site.",
+      "html": "<a href=\"#\" class=\"ds-dept\"><span class=\"ds-dept-head\">Origin Story<span class=\"ds-dept-aisle\">Aisle 1</span><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\" stroke-linecap=\"square\"/></svg></span><span class=\"ds-dept-line\">How the nickname happened.</span></a>",
+      "css": ".ds-dept { display: flex; flex-direction: column; max-width: 340px; padding: 12px; border: 2px dashed #161210; background: #f7e6bd; color: #161210; text-decoration: none; transition: background-color 200ms ease-out, transform 200ms ease-out; } .ds-dept-head { display: flex; align-items: center; gap: 8px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2rem; line-height: 1; text-transform: uppercase; } .ds-dept-aisle { margin-left: auto; padding: 2px 6px; border: 2px solid #161210; background: #fff4dc; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; } .ds-dept svg { transition: transform 200ms; } .ds-dept-line { margin-top: 4px; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.92rem; line-height: 1.375; } .ds-dept:hover { background: #ffd400; transform: translateY(-2px); } .ds-dept:hover svg { transform: translateX(4px); } .ds-dept:focus-visible { outline: 3px solid #161210; outline-offset: 3px; }"
+    },
+    {
+      "name": "Aisle Tag",
+      "kind": "chip",
+      "refersTo": "aisle-tag",
+      "description": "Square label that sits on a box's top border or right-aligned in a header; replaces eyebrow kickers.",
+      "html": "<span class=\"ds-tag\">Levels 1-2</span>",
+      "css": ".ds-tag { display: inline-block; padding: 2px 6px; background: #1d7438; color: #fff4dc; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Security-Cam Monitor Bezel",
+      "kind": "custom",
+      "refersTo": "monitor-bezel",
+      "description": "Game surface frame: ink bezel, yellow cam label, red REC lamp clock, overlay plates on the playfield.",
+      "html": "<section class=\"ds-bezel\"><div class=\"ds-bezel-bar\"><span>Cam 1 · Rec room</span><span class=\"ds-rec\"><span class=\"ds-rec-dot\"></span>Rec 0:45</span></div><div class=\"ds-field\"><div class=\"ds-plate ds-tl\">Lvl 1/6 · Ping pong</div><div class=\"ds-plate ds-streak\">2/3 in a row</div><div class=\"ds-plate ds-bl\">Got away <i class=\"ds-pip on\"></i><i class=\"ds-pip\"></i><i class=\"ds-pip\"></i></div><div class=\"ds-plate ds-br\"><div class=\"ds-q\"><span>Quota</span><span>200<small>/400</small></span></div><div class=\"ds-bar\"><div style=\"width:50%\"></div></div></div></div></section>",
+      "css": ".ds-bezel { max-width: 420px; padding: 6px; border: 3px solid #161210; background: #161210; color: #ffd400; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1; } .ds-bezel-bar { display: flex; justify-content: space-between; gap: 12px; padding: 0 4px 6px; font-size: 1.35rem; } .ds-rec { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; } .ds-rec-dot { width: 12px; height: 12px; border-radius: 50%; background: #d8141b; } .ds-field { position: relative; aspect-ratio: 3 / 4; border: 2px solid #161210; background: #f7e6bd; } .ds-plate { position: absolute; padding: 4px 8px; background: rgb(22 18 16 / 0.8); font-size: 1.125rem; } .ds-tl { top: 8px; left: 8px; } .ds-streak { top: 8px; right: 8px; background: #1d7438; color: #fff4dc; } .ds-bl { bottom: 8px; left: 8px; display: flex; align-items: center; gap: 6px; font-size: 1rem; } .ds-pip { width: 12px; height: 12px; border: 2px solid #ffd400; } .ds-pip.on { background: #d8141b; } .ds-br { bottom: 8px; right: 8px; width: 46%; } .ds-q { display: flex; justify-content: space-between; align-items: baseline; } .ds-q span:last-child { font-size: 1.25rem; font-variant-numeric: tabular-nums; } .ds-q small { font-size: 0.875rem; } .ds-bar { margin-top: 4px; height: 8px; border: 1px solid #ffd400; } .ds-bar div { height: 100%; background: #ffd400; transition: width 300ms ease-out; }"
+    },
+    {
+      "name": "Walkie Strip",
+      "kind": "custom",
+      "refersTo": "walkie-strip",
+      "description": "Aria-live taunt channel under the bezel; red Uncle T tag or ink Mgr tag.",
+      "html": "<div class=\"ds-walkie\" role=\"status\" aria-live=\"polite\"><span class=\"ds-walkie-tag\">Uncle T</span><p>“The table was warped. Everyone saw it.”</p></div><div class=\"ds-walkie\" role=\"status\"><span class=\"ds-walkie-tag mgr\">Mgr</span><p>“Cleanup on aisle three.”</p></div>",
+      "css": ".ds-walkie { display: flex; align-items: flex-start; gap: 12px; max-width: 420px; min-height: 4.5rem; margin-bottom: 8px; padding: 10px; border: 3px solid #161210; background: #ffd400; color: #161210; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; text-transform: uppercase; } .ds-walkie-tag { flex-shrink: 0; padding: 4px 6px; background: #d8141b; color: #fff4dc; font-size: 1rem; font-weight: 900; line-height: 1; } .ds-walkie-tag.mgr { background: #161210; color: #ffd400; } .ds-walkie p { margin: 0; font-size: 1.5rem; font-weight: 800; line-height: 1.02; text-wrap: balance; }"
+    },
+    {
+      "name": "Price Tag",
+      "kind": "chip",
+      "refersTo": "price-tag",
+      "description": "Tag each bird wears on a string; punch holes are the remaining Shots. Recalled variant is ink and yellow.",
+      "html": "<div class=\"ds-ptags\"><span class=\"ds-ptag\"><span class=\"ds-holes\"><i class=\"live\"></i><i class=\"live\"></i><i></i></span>Daniel 100</span><span class=\"ds-ptag recalled\"><span class=\"ds-holes\"><i class=\"live\"></i><i class=\"live\"></i><i class=\"live\"></i></span>Recalled −100</span></div>",
+      "css": ".ds-ptags { display: flex; gap: 24px; padding-top: 20px; } .ds-ptag { position: relative; padding: 2px 7px; border: 2.5px solid #161210; background: #ffd400; color: #161210; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 17px; text-transform: uppercase; } .ds-ptag.recalled { background: #161210; color: #ffd400; border-color: #ffd400; } .ds-holes { position: absolute; left: 50%; top: -16px; display: flex; gap: 3px; transform: translateX(-50%); } .ds-holes i { width: 9px; height: 9px; border: 2px solid #161210; border-radius: 50%; background: #fff4dc; } .ds-holes i.live { background: #d8141b; }"
+    },
+    {
+      "name": "Meme Caption",
+      "kind": "custom",
+      "description": "Hit caption: yellow Big Shoulders 900 with a heavy ink stroke, slams 1.6 to 1 with expo-out; penalty variant is newsprint on recall red.",
+      "html": "<div class=\"ds-caps\"><span class=\"ds-cap\">Backhand still broken</span><span class=\"ds-cap bad\">Recalled. Do not eat.</span></div>",
+      "css": ".ds-caps { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 16px; background: #f7e6bd; } .ds-cap { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2.4rem; line-height: 1; text-transform: uppercase; text-align: center; color: #ffd400; -webkit-text-stroke: 8px #161210; paint-order: stroke fill; transform: rotate(-3deg); animation: ds-cap-slam 220ms cubic-bezier(0.16,1,0.3,1) both; } .ds-cap.bad { color: #fff4dc; -webkit-text-stroke-color: #b3121b; } @keyframes ds-cap-slam { from { transform: rotate(-3deg) scale(1.6); } to { transform: rotate(-3deg) scale(1); } } @media (prefers-reduced-motion: reduce) { .ds-cap { animation: none; } }"
+    },
+    {
+      "name": "End Panel",
+      "kind": "card",
+      "refersTo": "end-panel",
+      "description": "Newsprint card on an ink/55 scrim with the yellow square hunt button and a quiet newsprint variant.",
+      "html": "<div class=\"ds-scrim\"><div class=\"ds-end\"><h2>Quota missed</h2><p>Three turkeys got away. This Level’s points are gone; cleared Levels stay cleared.</p><div class=\"ds-end-row\"><button class=\"ds-hunt-btn\">Retry level 1</button><button class=\"ds-hunt-btn quiet\">Play again</button></div></div></div>",
+      "css": ".ds-scrim { display: grid; place-items: center; max-width: 420px; padding: 16px; background: #f7e6bd linear-gradient(rgb(22 18 16 / 0.55), rgb(22 18 16 / 0.55)); } .ds-end { width: 100%; max-width: 24rem; padding: 16px; border: 3px solid #161210; background: #fff4dc; color: #161210; } .ds-end h2 { margin: 0; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2.6rem; line-height: 0.9; text-transform: uppercase; color: #d8141b; } .ds-end p { margin: 8px 0 0; font-family: 'Archivo Narrow', 'Arial Narrow', sans-serif; font-size: 0.95rem; line-height: 1.375; } .ds-end-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; } .ds-hunt-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px; border: 2px solid #161210; border-radius: 0; background: #ffd400; color: #161210; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-size: 1.5rem; font-weight: 900; line-height: 1; text-transform: uppercase; cursor: pointer; transition: transform 160ms cubic-bezier(0.16,1,0.3,1), box-shadow 160ms cubic-bezier(0.16,1,0.3,1); } .ds-hunt-btn.quiet { background: #fff4dc; } .ds-hunt-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 22px -10px rgb(22 18 16 / 0.5); } .ds-hunt-btn:focus-visible { outline: 3px solid #161210; outline-offset: 3px; } .ds-hunt-btn:disabled { opacity: 0.55; transform: none; box-shadow: none; } @media (prefers-reduced-motion: reduce) { .ds-hunt-btn { transition: none; } }"
+    },
+    {
+      "name": "Comic Panel",
+      "kind": "card",
+      "refersTo": "comic-panel",
+      "description": "Story chapter: 3px ink frame, yellow narration strip, scene in a 2.5px inner frame, a bubble with a measured two-sided tail, and a corner SFX burst.",
+      "html": "<figure class=\"ds-panel\"><figcaption class=\"ds-narr\">Florida. Too hot for a turkey.</figcaption><div class=\"ds-mat\"><div class=\"ds-scene\"><p class=\"ds-bubble\">North it is!</p><svg class=\"ds-tail\" viewBox=\"0 0 300 180\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><polygon points=\"34,40 70,92 48,40\" fill=\"#fff\"/><polyline points=\"34,40 70,92 48,40\" fill=\"none\" stroke=\"#161210\" stroke-width=\"2.5\" stroke-linejoin=\"round\"/></svg></div></div><div class=\"ds-sfx\"><svg viewBox=\"0 0 100 100\" aria-hidden=\"true\"><polygon points=\"50.00,0.00 57.61,11.75 69.13,3.81 71.67,17.57 85.36,14.64 82.43,28.33 96.19,30.87 88.25,42.39 100.00,50.00 88.25,57.61 96.19,69.13 82.43,71.67 85.36,85.36 71.67,82.43 69.13,96.19 57.61,88.25 50.00,100.00 42.39,88.25 30.87,96.19 28.33,82.43 14.64,85.36 17.57,71.67 3.81,69.13 11.75,57.61 0.00,50.00 11.75,42.39 3.81,30.87 17.57,28.33 14.64,14.64 28.33,17.57 30.87,3.81 42.39,11.75\" fill=\"#ffd400\" stroke=\"#161210\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg><span>Flap!</span></div></figure>",
+      "css": ".ds-panel { position: relative; max-width: 340px; margin: 0 0 16px; border: 3px solid #161210; background: #fff4dc; color: #161210; } .ds-narr { border-bottom: 3px solid #161210; background: #ffd400; padding: 8px 12px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.15rem; line-height: 1.05; text-transform: uppercase; } .ds-mat { padding: 10px; } .ds-scene { position: relative; aspect-ratio: 400 / 260; border: 2.5px solid #161210; background: linear-gradient(#fff4dc 0 72%, #1b5fa8 72%); } .ds-bubble { position: absolute; top: 6%; left: 3%; z-index: 10; max-width: 46%; margin: 0; padding: 6px 10px; border: 2.5px solid #161210; background: #fff; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1rem; line-height: 1.05; text-transform: uppercase; } .ds-tail { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 11; pointer-events: none; } .ds-sfx { position: absolute; right: -12px; bottom: -16px; z-index: 20; display: grid; place-items: center; width: 6.5rem; aspect-ratio: 1; rotate: -10deg; } .ds-sfx svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; } .ds-sfx span { position: relative; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 1.25rem; line-height: 0.9; color: #d8141b; text-transform: uppercase; }"
+    },
+    {
+      "name": "Shout Bubble",
+      "kind": "custom",
+      "refersTo": "speech-bubble-shout",
+      "description": "Shout variant: 3px red border and red lettering; on the splash panel it breaks past the panel border.",
+      "html": "<div class=\"ds-shout-wrap\"><p class=\"ds-shout\">Professor, with respect, I am simply better than these chumps.</p></div>",
+      "css": ".ds-shout-wrap { position: relative; max-width: 300px; height: 150px; margin-right: 2.75rem; border: 3px solid #161210; background: #f7e6bd; } .ds-shout { position: absolute; top: 8px; right: -2.75rem; max-width: 60%; margin: 0; padding: 8px 12px; border: 3px solid #d8141b; background: #fff; color: #d8141b; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 1.5rem; line-height: 1.05; text-transform: uppercase; }"
+    },
+    {
+      "name": "Story Meme Caption",
+      "kind": "custom",
+      "description": "Page variant of the Hunt caption: yellow Big Shoulders 900, 0.1em ink stroke painted under the fill, tilted -3deg, static. One per tall-tale feature.",
+      "html": "<div class=\"ds-smeme-wrap\"><p class=\"ds-smeme\">Brandon: 47 · Daniel: 1 boot</p></div>",
+      "css": ".ds-smeme-wrap { padding: 16px; background: #1d7438; text-align: center; } .ds-smeme { display: inline-block; margin: 0; padding: 12px; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 2.6rem; line-height: 1; color: #ffd400; text-transform: uppercase; -webkit-text-stroke: 0.1em #161210; paint-order: stroke fill; rotate: -3deg; text-wrap: balance; }"
+    },
+    {
+      "name": "End Band",
+      "kind": "card",
+      "refersTo": "end-band",
+      "description": "Ink close of the story with a script shout and a dashed yellow coupon link to Turkey Hunt.",
+      "html": "<section class=\"ds-endband\"><p class=\"ds-endband-shout\">To be continued…</p><h2>The end (for now)</h2><a href=\"#\" class=\"ds-endband-link\">Play Turkey Hunt</a></section>",
+      "css": ".ds-endband { max-width: 420px; padding: 24px 16px; border: 3px solid #161210; background: #161210; color: #fff4dc; text-align: center; } .ds-endband-shout { margin: 0; font-family: 'Yellowtail', cursive; font-size: 2.4rem; line-height: 1; color: #ffd400; } .ds-endband h2 { margin: 4px 0 0; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 3rem; line-height: 0.9; text-transform: uppercase; } .ds-endband-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 20px; padding: 8px 20px; border: 3px dashed #ffd400; background: #ffd400; color: #161210; font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; font-weight: 900; font-size: 1.6rem; text-transform: uppercase; text-decoration: none; transition: transform 200ms ease-out; } .ds-endband-link:hover { transform: translateY(-2px); } .ds-endband-link:focus-visible { outline: 3px solid #ffd400; outline-offset: 3px; } @media (prefers-reduced-motion: reduce) { .ds-endband-link { transition: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "This Week's Loss-Leader",
+    "overview": "Uncle Turkey is the doorbuster in a Thanksgiving-week supermarket circular. Every surface is a page of that weekly ad: a red store masthead, a black date strip, price boxes ruled in ink, process-yellow starbursts and dashed coupons, all printed on warm newsprint. The roast lives in the fine print. The ad sells him by the pound and the small type undercuts the sale.\n\nDensity is circular-dense, not airy: boxes butt against each other on a 12px gutter, one price-box grid owns the layout, and billing rank is ruthless (the doorbuster is billed roughly three times anything else on the page). The system rejects the warm-autumn hero with a centered mascot and three soft cards; the incumbent stock `autumn` theme was replaced for exactly that reason (ADR 0019).\n\nCorners are square, borders are heavy, depth is printed rather than lit. Motion is rare and authored: the price burst slams onto the page once, and the coupon tears out when clipped.\n\nThe game surface (Turkey Hunt) is the same store seen through its security monitor: an ink bezel, yellow camera-overlay text on translucent ink plates, a red REC lamp as the clock, and rivalry rooms printed in the circular's own flat inks. Birds wear the ad's price tags. Inside the playfield, gameplay motion is allowed; outside it, the page stays as still as the ad.\n\nThe story surface (Origin Story) is the circular's Sunday Funnies insert: the same newsprint and inks, set as square ink-framed comic panels with yellow narration boxes, white speech bubbles, SFX words in the authored starburst, and drawn cartoon turkeys. Prose runs beside each panel at a reading measure. The page is as still as the ad: the bursts are printed, not slammed.",
+    "keyCharacteristics": [
+      "Square corners everywhere (0px); 2-3px ink rules and price-box borders.",
+      "Circular red, process yellow, newsprint, ink, with produce green as the single \"deal\" accent.",
+      "Condensed heavy grotesque for prices and headings, script only for shouts, narrow grotesque for fine print.",
+      "Dashed borders mean \"you can clip this\": coupons, departments, portrait slots.",
+      "Turkey Assets are illustrated; placeholders are labeled as placeholders.",
+      "On the game surface, overlay text is yellow on ink at 80%, and every bird carries a price tag.",
+      "On the story surface, every chapter is a comic panel: a 3px ink frame, a yellow narration strip, white bubbles with measured tails."
+    ],
+    "rules": [
+      {
+        "name": "The Fine-Print Contrast Rule",
+        "body": "Any text on Circular Red must clear 4.5:1; that is why red is `#d8141b`. Don't brighten it back to make it \"pop\".",
+        "section": "colors"
+      },
+      {
+        "name": "The One Deal Rule",
+        "body": "Green is the only accent beyond red and yellow, and it means \"deal\". Don't add a fourth decorative hue to UI. Drawn turkeys and props may use their illustration pigments, because a turkey is brown; scenery may print water, balls and whole scene fields in Flyer Blue. On the Hunt, green still means deal: the Bulk Discount streak plate is green. On the story surface, a green field marks a tall-tale feature band, the way the home's Department of Grudges band is green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fine-Print Rule",
+        "body": "The joke goes in body-size fine print, never in the headline. Headlines sell; the small type roasts.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shout-Sparingly Rule",
+        "body": "Script is for exclamations only, at most one shout per box, and never for body or navigation.",
+        "section": "typography"
+      },
+      {
+        "name": "The Printed-Not-Lit Rule",
+        "body": "At rest nothing casts a shadow. Paper lifts only when the visitor handles it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Fifteen-Pixel Tag Rule",
+        "body": "Text drawn on the game canvas scales with the canvas, so it is sized against on-screen pixels: price-tag text never renders under 15px on screen.",
+        "section": "typography"
+      },
+      {
+        "name": "The Behind-The-Prop Rule",
+        "body": "Birds rise from behind the room's foreground prop and in front of its wall pennants. Pennants are opaque so a bird never reads through them.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Lettering-Not-Script Rule",
+        "body": "Comic speech and narration are lettered in Big Shoulders uppercase, never in the script face; Yellowtail stays the shout of the box, not the voice of a bird.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** keep every corner square and every border Ink (2px; 3px on the dominant boxes).",
+      "**Do** use dashed borders only for things that can be clipped or are pending.",
+      "**Do** label sections with right-aligned aisle tags or tags sitting on the box's top border.",
+      "**Do** build starbursts with the authored SVG polygon component.",
+      "**Do** put the roast in fine print and keep text on red at 4.5:1 or better.",
+      "**Do** keep decorative page motion to the burst slam and the coupon tear, and honor `prefers-reduced-motion` for both. Inside the game playfield only, gameplay motion (flight, flap, fall, the caption slam, hit feedback) is exempt from that limit; the caption slam still honors reduced motion.",
+      "**Do** bill one thing per page as the doorbuster and let everything else rank below it.",
+      "**Do** set game-surface overlay text in yellow Big Shoulders on ink plates at 80%, pinned to the playfield corners.",
+      "**Do** hang a price tag on every bird, show remaining Shots as punch holes, and keep tag text at 15px or more on screen.",
+      "**Do** draw rivalry rooms as flat print in the system's tokens, with birds rising behind the foreground prop and in front of opaque pennants.",
+      "**Do** keep game controls at 44px or taller, and hide the reticle on coarse pointers until the first tap.",
+      "**Do** tell story chapters as comic panels: 3px ink frame, yellow lettered narration strip, scene in a 2.5px inner frame, prose beside it in story body at 60ch.",
+      "**Do** measure bubble tails from the rendered bubble and aim them at the speaker's beak; cap their reach so they never cross a prop's lettering, and move bubbles to a band above the scene under 480px.",
+      "**Do** give a page at most one splash panel, and let only its shout break the border."
+    ],
+    "donts": [
+      "**Don't** set small uppercase eyebrow kickers above headings; use corner flags or right-aligned aisle tags.",
+      "**Don't** make starbursts with `clip-path`.",
+      "**Don't** ship photos of real people as Turkey Assets; turkeys are illustrated, and placeholders say they are placeholders.",
+      "**Don't** add rounded corners, soft cards, or resting drop shadows.",
+      "**Don't** add new decorative animation beyond the burst slam and coupon tear; the gameplay exemption stops at the playfield's edge.",
+      "**Don't** fall back to the warm-autumn centered-mascot hero with three cards.",
+      "**Don't** use circles for containers, buttons or plates; in UI, circles are for lamps, holes and sights (drawn scenery may use them freely).",
+      "**Don't** use illustration pigments (plumage orange, body browns, skin) in UI chrome.",
+      "**Don't** number comic panels or letter speech in the script face.",
+      "**Don't** animate SFX bursts or story meme captions; on the story page they are printed."
+    ]
+  }
+}

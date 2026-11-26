@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Operation Gravy Boat</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Stardos+Stencil:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--manila:#d9c08a;--ink:#121212;--red:#c8102e;--paper:#f2ead6}
+*{box-sizing:border-box;margin:0}
+body{width:390px;height:844px;overflow:hidden;background:var(--ink);color:var(--paper);font-family:'Special Elite',monospace}
+.tab{background:var(--manila);color:var(--ink);margin:14px 14px 0;width:190px;padding:8px 12px;font:700 22px 'Stardos Stencil';text-transform:uppercase}
+.file{background:var(--manila);color:var(--ink);margin:0 14px;padding:14px;height:560px;position:relative}
+.file h1{font:700 44px/.95 'Stardos Stencil';text-transform:uppercase}
+.frames{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.fr{height:120px;background:repeating-linear-gradient(0deg,#3a3a3a 0 2px,#555 2px 4px);border:2px solid var(--ink);position:relative}
+.fr.on{outline:4px solid var(--red)}
+.ret{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px;border:3px solid var(--red);border-radius:50%}
+.ret:before,.ret:after{content:"";position:absolute;background:var(--red)}
+.ret:before{left:50%;top:-14px;bottom:-14px;width:3px;margin-left:-1.5px}
+.ret:after{top:50%;left:-14px;right:-14px;height:3px;margin-top:-1.5px}
+.stamp{position:absolute;right:10px;bottom:70px;border:5px solid var(--red);color:var(--red);font:700 40px/1 'Stardos Stencil';padding:4px 10px;transform:rotate(-12deg);text-transform:uppercase}
+.typed{font-size:24px;margin-top:14px}
+.engage{margin:14px;background:var(--red);color:var(--paper);padding:16px;font:700 34px 'Stardos Stencil';text-transform:uppercase;display:flex;justify-content:space-between}
+</style></head><body>
+<div class="tab">Top secret</div>
+<section class="file">
+  <h1>Subject:<br>Uncle Turkey</h1>
+  <div class="frames"><div class="fr on"><div class="ret"></div></div><div class="fr"></div><div class="fr"></div><div class="fr"></div></div>
+  <p class="typed">Status: at large_</p>
+  <div class="stamp">Classified</div>
+</section>
+<a class="engage"><span>Engage</span><span>⌖</span></a>
+</body></html>

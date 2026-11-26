@@ -13,15 +13,63 @@ The same person as Uncle Turkey; preferred when stressing the real-world first n
 _Avoid_: A separate character from Uncle Turkey
 
 **Guest Turkey**:
-A cameo turkey character built like Uncle Turkey but for another person, named **{Name} Turkey** (for example Steph Turkey, Brandon Turkey).
+A cameo turkey character built like Uncle Turkey but for another person, named **{Name} Turkey**. The first guests are **Steph Turkey**, **Steve Turkey**, and **Brandon Turkey** — each a different person from Uncle Turkey and from each other.
 _Avoid_: Uncle Turkey, NPC, skin
+
+**Steph Turkey**:
+A Guest Turkey. Not Steve Turkey.
+_Avoid_: Steve Turkey, Uncle Turkey
+
+**Steve Turkey**:
+A Guest Turkey. Not Steph Turkey.
+_Avoid_: Steph Turkey, Uncle Turkey
+
+**Brandon Turkey**:
+A Guest Turkey.
+_Avoid_: Uncle Turkey, Steph Turkey, Steve Turkey
+
+**Stuffed Turkey**:
+A Turkey Hunt decoy that is a stuffed bird, not a person's likeness and not a Guest Turkey.
+_Avoid_: Guest Turkey, costume, Uncle Turkey
+
+**Hunt Target**:
+A turkey you click in Turkey Hunt. Each kind has a fixed point value: Daniel Turkey 100, Steph Turkey 200, Stuffed Turkey 200, Steve Turkey 400, Brandon Turkey −100.
+_Avoid_: Enemy, sprite, NPC
+
+**Level**:
+One Turkey Hunt round. You clear it by reaching its Point Quota before time runs out or too many Hunt Targets fly off. A click is a Shot, and each bird allows only a limited number of Shots. The game has six Levels: two ping pong, two fishing, then two racquetball. The second Level of each Rivalry is harder.
+_Avoid_: Round, stage, wave
+
+**Point Quota**:
+The score a Level requires before it ends. Hitting Brandon Turkey subtracts points and can keep you from clearing the Level.
+_Avoid_: Hit count, kill quota
+
+**Run**:
+One attempt at Turkey Hunt’s six Levels. Cleared Levels stay cleared. Missing the Point Quota retries that Level and wipes only that Level’s points. The Turkey Hunt High Score is the Run’s total when you clear Level 6 or quit.
+_Avoid_: Life, continue, game over (a failed Level is a retry, not the end of the Run)
+
+**Shot**:
+One click of the crosshair at a Hunt Target. Each bird allows only a limited number of Shots.
+_Avoid_: Bullet, ammo pack, click (as the domain name)
+
+**Bulk Discount**:
+A +50 Turkey Hunt bonus for bagging three positive Hunt Targets in a row without a wasted Shot. Hitting Brandon Turkey, a wasted Shot, or a Fly-off resets the streak.
+_Avoid_: Combo, multiplier
+
+**Fly-off**:
+A Hunt Target that leaves the playfield without a successful hit: it escapes upward when its time on screen runs out or its Shots are spent. Too many Fly-offs fail the Level.
+_Avoid_: Escape, miss (a miss is a Shot that does not hit; a Fly-off is the bird leaving)
+
+**Rivalry**:
+A real contest between the friends — ping pong, fishing, or racquetball — used in Turkey Hunt as Level scenery and one-liners. The Shot and crosshair stay the same on every Level.
+_Avoid_: Sport mode, mini-game (Turkey Hunt is the Mini Game; a Rivalry is not a separate game)
 
 **Mini Game**:
 A playable gag game hosted on the site (for example a Duck Hunt–style shooter).
 _Avoid_: App, level, experience
 
 **Turkey Hunt**:
-The first Mini Game — a Duck Hunt–style gag shooter. Repo id: `turkey-hunt`.
+The first Mini Game — a Duck Hunt–style gag shooter. Repo id: `turkey-hunt`. The first playable version uses labeled stand-in birds until real Turkey Assets exist; the Hunt Targets and point values stay the same when the art is swapped in.
 _Avoid_: Duck Hunt (the real game), sample-game
 
 **Games Hub**:
