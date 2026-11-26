@@ -27,6 +27,7 @@ import {
 	ON_WIN,
 	pick
 } from './roast';
+import type { FaceId } from '#lib/assets/characters/faces';
 import type { FailReason, HuntHud, HuntStatus, Speaker, TargetId, Taunt } from './types';
 
 const DISPLAY = '"Big Shoulders Display", "Arial Narrow", sans-serif';
@@ -86,6 +87,11 @@ export class HuntScene extends Phaser.Scene {
 		this.W = this.scale.width;
 		this.H = this.scale.height;
 		this.onHud = this.registry.get('onHud') as (hud: HuntHud) => void;
+		// Illustrated faces (ADR 0013) arrive pre-decoded from the mount; the stuffed decoy has none.
+		const faces = (this.registry.get('faces') ?? {}) as Partial<Record<FaceId, HTMLImageElement>>;
+		for (const [id, img] of Object.entries(faces)) {
+			if (img && !this.textures.exists(`face-${id}`)) this.textures.addImage(`face-${id}`, img);
+		}
 		this.reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 		const shown = this.scale.displaySize.width || this.W;
 		this.ui = Math.max(1, this.W / shown);
@@ -354,21 +360,32 @@ export class HuntScene extends Phaser.Scene {
 		wing.lineStyle(3, INK.ink, 1).strokeEllipse(0, -10, 34, 26);
 		wing.setPosition(-4, 6);
 		const head = this.add.graphics();
+		const faceId: FaceId | null = id === 'stuffed' ? null : (id as FaceId);
 		// Bare turkey head on a neck: eye, beak, a snood over the beak, a wattle under it.
 		const skin = id === 'stuffed' ? INK.tan : 0xe8574a;
 		head.fillStyle(skin).fillRoundedRect(16, -22, 12, 26, 5);
-		head.fillStyle(skin).fillEllipse(30, -24, 26, 22);
-		head.lineStyle(3, INK.ink, 1).strokeEllipse(30, -24, 26, 22);
-		head.fillStyle(INK.newsprint).fillCircle(32, -27, 5);
-		head.fillStyle(INK.ink).fillCircle(33.5, -27, 2.5);
-		head.fillStyle(INK.yellow).fillTriangle(41, -27, 53, -22, 41, -18);
-		head.lineStyle(2, INK.ink, 1).strokeTriangle(41, -27, 53, -22, 41, -18);
-		head.fillStyle(INK.red).fillEllipse(44, -14, 7, 16);
-		head.lineStyle(2, INK.ink, 1).strokeEllipse(44, -14, 7, 16);
-		head.fillStyle(INK.recall).fillEllipse(35, -11, 10, 14);
-		head.lineStyle(2, INK.ink, 1).strokeEllipse(35, -11, 10, 14);
+		if (!faceId) {
+			head.fillStyle(skin).fillEllipse(30, -24, 26, 22);
+			head.lineStyle(3, INK.ink, 1).strokeEllipse(30, -24, 26, 22);
+			head.fillStyle(INK.newsprint).fillCircle(32, -27, 5);
+			head.fillStyle(INK.ink).fillCircle(33.5, -27, 2.5);
+			head.fillStyle(INK.yellow).fillTriangle(41, -27, 53, -22, 41, -18);
+			head.lineStyle(2, INK.ink, 1).strokeTriangle(41, -27, 53, -22, 41, -18);
+			head.fillStyle(INK.red).fillEllipse(44, -14, 7, 16);
+			head.lineStyle(2, INK.ink, 1).strokeEllipse(44, -14, 7, 16);
+		}
 		head.lineStyle(4, INK.ink, 1).lineBetween(-8, 26, -12, 40).lineBetween(8, 26, 10, 40);
-		art.add([fan, body, wing, head]);
+		const parts: Phaser.GameObjects.GameObject[] = [fan, body, wing, head];
+		if (faceId && this.textures.exists(`face-${faceId}`)) {
+			// The cast member's illustrated turkey head (ADR 0013).
+			parts.push(this.add.image(35, -31, `face-${faceId}`).setDisplaySize(78, 78));
+		} else {
+			const wattle = this.add.graphics();
+			wattle.fillStyle(INK.recall).fillEllipse(35, -11, 10, 14);
+			wattle.lineStyle(2, INK.ink, 1).strokeEllipse(35, -11, 10, 14);
+			parts.push(wattle);
+		}
+		art.add(parts);
 
 		const tag = this.add.graphics();
 		const tagText = this.add
@@ -420,13 +437,13 @@ export class HuntScene extends Phaser.Scene {
 		const w = text.width + 14 * this.ui;
 		bird.margin = Math.max(50, w / 2 + 10);
 		const h = text.height + 4 * this.ui;
-		const bottom = -36;
+		const bottom = -66;
 		const top = bottom - h;
 		text.setPosition(-2, top + h / 2);
 		const r = Math.max(4, 4.5 * this.ui);
 		const g = bird.tag;
 		g.clear();
-		g.lineStyle(2, INK.ink, 1).lineBetween(-2, bottom, 6, -22);
+		g.lineStyle(2, INK.ink, 1).lineBetween(-2, bottom, 10, bottom + 6);
 		g.fillStyle(def.points < 0 ? INK.ink : INK.yellow).fillRect(-2 - w / 2, top, w, h);
 		g.lineStyle(2.5, def.points < 0 ? INK.yellow : INK.ink, 1).strokeRect(-2 - w / 2, top, w, h);
 		for (let i = 0; i < SHOTS_PER_BIRD; i++) {

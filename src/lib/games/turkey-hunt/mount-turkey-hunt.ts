@@ -1,6 +1,22 @@
 import Phaser from 'phaser';
 import { HuntScene } from './HuntScene';
 import type { HuntHud, TurkeyHuntController } from './types';
+import { FACE_IDS, faceUri, type FaceId } from '#lib/assets/characters/faces';
+
+/** Decode the illustrated faces once, so the scene can register them as textures synchronously. */
+export function loadFaces(): Promise<Partial<Record<FaceId, HTMLImageElement>>> {
+	return Promise.all(
+		FACE_IDS.map(
+			(id: FaceId) =>
+				new Promise<[FaceId, HTMLImageElement | null]>((resolve) => {
+					const img = new Image(200, 200);
+					img.onload = () => resolve([id, img]);
+					img.onerror = () => resolve([id, null]);
+					img.src = faceUri(id);
+				})
+		)
+	).then((pairs) => Object.fromEntries(pairs.filter(([, img]: [FaceId, HTMLImageElement | null]) => img)) as Partial<Record<FaceId, HTMLImageElement>>);
+}
 
 /** Phones get a tall 3:4 monitor; wider screens get a 16:10 one. */
 export function huntWorldSize(parentWidth: number) {
@@ -9,7 +25,8 @@ export function huntWorldSize(parentWidth: number) {
 
 export function mountTurkeyHunt(
 	parent: HTMLElement,
-	onHud: (hud: HuntHud) => void
+	onHud: (hud: HuntHud) => void,
+	faces: Partial<Record<FaceId, HTMLImageElement>> = {}
 ): TurkeyHuntController {
 	const { width, height } = huntWorldSize(parent.clientWidth);
 	const game = new Phaser.Game({
@@ -29,6 +46,7 @@ export function mountTurkeyHunt(
 		callbacks: {
 			preBoot: (booting) => {
 				booting.registry.set('onHud', onHud);
+				booting.registry.set('faces', faces);
 			}
 		},
 		scene: [HuntScene]

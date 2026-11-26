@@ -21,13 +21,19 @@
 		void Promise.all([
 			import('./mount-turkey-hunt'),
 			document.fonts?.load('900 40px "Big Shoulders Display"').catch(() => null)
-		]).then(([{ mountTurkeyHunt, huntWorldSize }]) => {
+		])
+			.then(async ([mod]) => [mod, await mod.loadFaces()] as const)
+			.then(([{ mountTurkeyHunt, huntWorldSize }, faces]) => {
 			if (cancelled) return;
 			const size = huntWorldSize(node.clientWidth);
 			aspect = `${size.width} / ${size.height}`;
-			current = mountTurkeyHunt(node, (next) => {
-				hud = next;
-			});
+			current = mountTurkeyHunt(
+				node,
+				(next) => {
+					hud = next;
+				},
+				faces
+			);
 			controller = current;
 		});
 

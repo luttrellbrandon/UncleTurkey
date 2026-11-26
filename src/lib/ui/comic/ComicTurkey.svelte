@@ -6,6 +6,7 @@
 	 * Stand-in art until real Turkey Assets exist: no faces, no likeness.
 	 */
 	import type { Who } from '#lib/content/origin';
+	import { faceUri, type FaceId } from '#lib/assets/characters/faces';
 
 	type Gear = 'collar' | 'cap' | 'veil' | 'bowtie' | 'shades' | 'paddle' | 'racquet' | 'goggles' | 'rod' | 'hearts' | 'sweat' | 'pompadour';
 
@@ -33,6 +34,11 @@
 	const look = $derived(LOOKS[who]);
 	const has = (g: Gear) => gear.includes(g);
 	const feathers = [-60, -30, 0, 30, 60];
+	/** Each cast member's illustrated turkey head; the Elvis officiant keeps a plain one. */
+	const face = $derived(who === 'elvis' ? null : faceUri(who as FaceId));
+	/** Head-worn gear sits higher on a face than on a bare turkey head. */
+	const eyeShift = $derived(face ? '6 -8' : '0 0');
+	const crownShift = $derived(face ? '3 -20' : '0 0');
 </script>
 
 <g transform="translate({x} {y}) scale({flip ? -scale : scale} {scale}) rotate({tilt})" stroke={INK} stroke-linejoin="round">
@@ -47,31 +53,41 @@
 		<path d="M10 -6 l2 -30 l14 18 z M36 -6 l8 -28 l-18 14 z" fill="#ffffff" stroke-width="2.5" />
 	{/if}
 	{#if has('veil')}
-		<path d="M24 -36 q-30 -6 -44 26 q-6 26 8 44 q6 -40 36 -64 z" fill="#ffffff" fill-opacity="0.9" stroke-width="2" />
+		<path d="M24 -36 q-30 -6 -44 26 q-6 26 8 44 q6 -40 36 -64 z" fill="#ffffff" fill-opacity="0.9" stroke-width="2" transform="translate({crownShift})" />
 	{/if}
 	<rect x="16" y="-22" width="12" height="26" rx="5" fill="#e8574a" stroke="none" />
-	<ellipse cx="30" cy="-24" rx="13" ry="11" fill="#e8574a" stroke-width="3" />
-	<circle cx="32" cy="-27" r="5" fill="#fff4dc" stroke="none" />
-	<circle cx="33.5" cy="-27" r="2.5" fill={INK} stroke="none" />
-	<path d="M41 -27 L53 -22 L41 -18 Z" fill="#ffd400" stroke-width="2" />
-	<ellipse cx="44" cy="-14" rx="3.5" ry="8" fill="#d8141b" stroke-width="2" />
-	<ellipse cx="35" cy="-11" rx="5" ry="7" fill="#b3121b" stroke-width="2" />
+	{#if face}
+		<image href={face} x="-3" y="-68" width="76" height="76" />
+	{:else}
+		<ellipse cx="30" cy="-24" rx="13" ry="11" fill="#e8574a" stroke-width="3" />
+		<circle cx="32" cy="-27" r="5" fill="#fff4dc" stroke="none" />
+		<circle cx="33.5" cy="-27" r="2.5" fill={INK} stroke="none" />
+		<path d="M41 -27 L53 -22 L41 -18 Z" fill="#ffd400" stroke-width="2" />
+		<ellipse cx="44" cy="-14" rx="3.5" ry="8" fill="#d8141b" stroke-width="2" />
+		<ellipse cx="35" cy="-11" rx="5" ry="7" fill="#b3121b" stroke-width="2" />
+	{/if}
 
 	{#if has('shades')}
-		<path d="M24 -31 h18 v6 a4 4 0 0 1 -4 4 h-4 a4 4 0 0 1 -4 -4 v-2 h-2 v2 a4 4 0 0 1 -4 4 h-2 z" fill={INK} stroke-width="1" />
-		<path d="M50 -38 l3 -7 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 z" fill="#ffd400" stroke-width="1.5" />
+		<g transform="translate({eyeShift})">
+			<path d="M24 -31 h18 v6 a4 4 0 0 1 -4 4 h-4 a4 4 0 0 1 -4 -4 v-2 h-2 v2 a4 4 0 0 1 -4 4 h-2 z" fill={INK} stroke-width="1" />
+			<path d="M50 -38 l3 -7 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 z" fill="#ffd400" stroke-width="1.5" />
+		</g>
 	{/if}
 	{#if has('goggles')}
-		<rect x="23" y="-32" width="20" height="10" rx="5" fill="#1b5fa8" fill-opacity="0.5" stroke-width="2.5" />
-		<line x1="17" y1="-27" x2="23" y2="-27" stroke-width="2.5" />
+		<g transform="translate({eyeShift})">
+			<rect x="23" y="-32" width="20" height="10" rx="5" fill="#1b5fa8" fill-opacity="0.5" stroke-width="2.5" />
+			<line x1="17" y1="-27" x2="23" y2="-27" stroke-width="2.5" />
+		</g>
 	{/if}
 	{#if has('cap')}
-		<path d="M14 -40 L32 -48 L50 -40 L32 -32 Z" fill={INK} stroke-width="2" />
-		<rect x="24" y="-38" width="16" height="6" fill={INK} stroke="none" />
-		<path d="M50 -40 v12" stroke="#ffd400" stroke-width="2.5" />
+		<g transform="translate({crownShift})">
+			<path d="M14 -40 L32 -48 L50 -40 L32 -32 Z" fill={INK} stroke-width="2" />
+			<rect x="24" y="-38" width="16" height="6" fill={INK} stroke="none" />
+			<path d="M50 -40 v12" stroke="#ffd400" stroke-width="2.5" />
+		</g>
 	{/if}
 	{#if has('veil')}
-		<path d="M22 -36 l4 -10 l5 6 l5 -8 l4 8 l5 -6 l2 10 z" fill="#ffd400" stroke-width="2" />
+		<path d="M22 -36 l4 -10 l5 6 l5 -8 l4 8 l5 -6 l2 10 z" fill="#ffd400" stroke-width="2" transform="translate({crownShift})" />
 	{/if}
 	{#if has('pompadour')}
 		<path d="M14 -28 q-4 -30 22 -34 q26 -4 30 14 q-12 -8 -26 -2 q-10 4 -14 18 q-6 -4 -12 4 z" fill="#161210" stroke-width="2" />

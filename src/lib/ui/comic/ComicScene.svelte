@@ -75,7 +75,7 @@
 				<text x="216" y="226" text-anchor="middle" class="grade" transform="rotate(-8 217 218)">A+++</text>
 			{/if}
 			<rect x="0" y="236" width="400" height="24" fill="#ead29a" stroke-width="3" />
-			<ComicTurkey who="daniel" x={86} y={204} gear={scene === 'classroom' ? ['hearts'] : ['sweat']} />
+			<ComicTurkey who="daniel" x={86} y={204} gear={scene === 'classroom' ? [] : ['sweat']} />
 			<ComicTurkey who="brandon" x={320} y={204} flip gear={['shades']} />
 		{:else if scene === 'vegas'}
 			<rect width="400" height="260" fill={INK} stroke="none" />

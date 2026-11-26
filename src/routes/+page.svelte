@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import Starburst from '#lib/ui/Starburst.svelte';
-	import PlaceholderTurkey from '#lib/ui/PlaceholderTurkey.svelte';
+	import { danielPoses } from '#lib/content/daniel-poses';
+	import type { PageProps } from './$types';
 	import {
 		doorbuster,
 		huntCoupon,
@@ -10,6 +11,10 @@
 		nutrition,
 		departments
 	} from '#lib/content/weekly-ad';
+
+	let { data }: PageProps = $props();
+	// This visit's Daniel Turkey; the server advances it every visit.
+	const pose = $derived(danielPoses[data.pose] ?? danielPoses[0]);
 
 	let clipped = $state(false);
 
@@ -70,9 +75,16 @@
 
 		<div class="mt-4 flex items-end gap-3 lg:mt-8 lg:gap-6">
 			<figure class="w-[48%] max-w-[16rem] shrink-0 border-[3px] border-dashed border-secondary bg-newsprint p-1.5">
-				<PlaceholderTurkey class="block h-auto w-full" />
+				<img
+					src={pose.src}
+					alt={pose.alt}
+					width="500"
+					height="500"
+					fetchpriority="high"
+					class="block aspect-square w-full border-2 border-ink object-cover object-top"
+				/>
 				<figcaption class="px-1 pt-1 pb-0.5 text-center text-[0.75rem] leading-tight font-bold text-ink uppercase">
-					Actual turkey may vary
+					{pose.caption}
 				</figcaption>
 			</figure>
 			<div class="min-w-0 flex-1">

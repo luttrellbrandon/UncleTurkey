@@ -56,13 +56,13 @@ export const originChapters: OriginChapter[] = [
 		caption: 'Meanwhile, at SIU: summer session. Physics. Differential equations. No air conditioning.',
 		scene: 'classroom',
 		bubbles: [
-			{ who: 'daniel', text: 'Wow. Who is that genius? And why is he so handsome?' },
-			{ who: 'brandon', text: 'Hi. It’s me. Brandon.' }
+			{ who: 'daniel', text: 'Whoa. Who is THAT guy? He’s the coolest guy I’ve ever met.' },
+			{ who: 'brandon', text: 'Sup. Brandon. I already finished the homework.' }
 		],
-		sfx: 'Swoon!',
+		sfx: 'Cool!',
 		body: [
 			'Determined to better himself, Daniel enrolled in summer physics and differential equations at SIU, because nothing says "fun summer" like second-order linear ODEs in July.',
-			'It was there, in a sweltering lecture hall, that he met one of the smartest and, frankly, best-looking people he had ever laid his beady little eyes on: a guy named Brandon. Historians agree the room got noticeably brighter. Daniel took notes on everything Brandon said, including "is this seat taken?"'
+			'It was there, in a sweltering lecture hall, that he met the coolest guy he had ever laid his beady little eyes on: a guy named Brandon. Sunglasses indoors. Homework done before it was assigned. Somehow not sweating in a room with no air conditioning. Daniel took notes on everything Brandon said, including "is this seat taken?"'
 		]
 	},
 	{
