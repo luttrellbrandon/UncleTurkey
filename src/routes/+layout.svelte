@@ -10,7 +10,7 @@
 	let { children }: LayoutProps = $props();
 
 	// The Weekly Ad and the Hunt own their width; other pages keep the reading column.
-	const fullBleed = $derived(['/', '/games/turkey-hunt', '/origin'].includes(page.url.pathname));
+	const fullBleed = $derived(['/', '/games/turkey-hunt', '/origin', '/links'].includes(page.url.pathname));
 </script>
 
 <svelte:head>

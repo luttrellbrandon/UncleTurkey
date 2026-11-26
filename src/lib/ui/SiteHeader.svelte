@@ -5,7 +5,8 @@
 		{ href: '/', label: 'Weekly Ad', aisle: 'Front' },
 		{ href: '/origin', label: 'Origin Story', aisle: 'Aisle 1' },
 		// Only one Mini Game for now, so Games goes straight to it.
-		{ href: '/games/turkey-hunt', label: 'Games', aisle: 'Aisle 3' }
+		{ href: '/games/turkey-hunt', label: 'Games', aisle: 'Aisle 3' },
+		{ href: '/links', label: 'Links', aisle: 'Aisle 7' }
 	] as const;
 
 	const pathname = $derived(page.url.pathname);
