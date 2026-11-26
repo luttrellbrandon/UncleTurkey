@@ -73,7 +73,7 @@ The first Mini Game — a Duck Hunt–style gag shooter. Repo id: `turkey-hunt`.
 _Avoid_: Duck Hunt (the real game), sample-game
 
 **Games Hub**:
-The site section that lists and links to available Mini Games.
+The site section that lists and links to available Mini Games. While only one Mini Game exists, the Games Hub is skipped and its links go straight to that game.
 _Avoid_: Arcade, game library, lobby
 
 **High Score**:

@@ -44,7 +44,7 @@ Imports use the `#lib` alias (see `package.json` `imports`).
 |------|---------|
 | `/` | Home |
 | `/origin` | Origin Story |
-| `/games` | Games Hub |
+| `/games` | Games Hub (redirects to Turkey Hunt while it's the only Mini Game) |
 | `/games/turkey-hunt` | Turkey Hunt shell |
 | `/links` | Turkey Links |
 | `/api/games/[gameId]/scores` | High Scores GET/POST |

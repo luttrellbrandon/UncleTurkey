@@ -99,7 +99,8 @@ export const departments = [
 		line: 'How the kids named him. Aged like leftover stuffing.'
 	},
 	{
-		href: '/games',
+		// Only one Mini Game for now, so the Games Hub card goes straight to it.
+		href: '/games/turkey-hunt',
 		aisle: 'Aisle 3',
 		title: 'Games Hub',
 		line: 'Turkey Hunt is on the shelf. More birds in the back.'

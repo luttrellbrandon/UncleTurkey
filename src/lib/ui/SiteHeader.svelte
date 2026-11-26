@@ -4,8 +4,8 @@
 	const links = [
 		{ href: '/', label: 'Weekly Ad', aisle: 'Front' },
 		{ href: '/origin', label: 'Origin Story', aisle: 'Aisle 1' },
-		{ href: '/games', label: 'Games', aisle: 'Aisle 3' },
-		{ href: '/links', label: 'Turkey Links', aisle: 'Aisle 7' }
+		// Only one Mini Game for now, so Games goes straight to it.
+		{ href: '/games/turkey-hunt', label: 'Games', aisle: 'Aisle 3' }
 	] as const;
 
 	const pathname = $derived(page.url.pathname);
